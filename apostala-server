@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+PROGRAMA=$(ps -au | grep apostala.sh | head -n1 | cut -d " " -f3)
+start() {
+	echo "Iniciando apostala-server..."
+	source /opt/apostala/apostala.sh &>> /var/log/apostala-server.log &
+	echo "[OK]"
+}
+
+stop() {
+	echo "Desligando apostala-server..."
+	kill -KILL -$PROGRAMA
+	echo "[OK]"
+}
+	case "$1" in
+	start) start
+	;;
+	stop) stop
+	;;
+	restart) stop; start
+	;;
+	*) echo "Uso correcto: (start|stop|restart)"
+	;;
+esac
