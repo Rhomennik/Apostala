@@ -8,9 +8,12 @@ set -o nounset	#En el caso que tenga variable sin declarar.
 set -o pipefail	#Para obtener el estado de salida de la ultima orden que arrojo un codigo de salida distinto a cero.
 #set -o xtrace	#Para depurar encaso que hay errores.
 
+## Variables
+RUTA=$(cat variables | grep ruta | cut -d "=" -f2)
+
 ## Modulos externos.
-SCREENSHOT="./modulo/screenshot/screenshot.sh"
-ULTRAVNC="./modulo/ultravnc/ultravnc.sh"
+SCREENSHOT="$RUTA/modulos/screenshot/screenshot.sh"
+ULTRAVNC="$RUTA/modulos/ultravnc/ultravnc.sh"
 ## Lista de dependencias (Creamos el vector DEPENDENCIA[] para guardar las dependencias necesarios para el funcionamento del scritp).
 DEPENDENCIA[0]=scrot	#Una pequena aplicacion para hacer screenshot de la pantalla.
 DEPENDENCIA[1]=x11vnc	#Pequenho administrador de tareas en linea de codigo

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+RUTA=$(cat variables | grep ruta | cut -d "=" -f2)
 PROGRAMA=$(ps -au | grep apostala.sh | head -n1 | cut -d " " -f3)
 start() {
 	echo "Iniciando apostala-server..."
-	source /opt/apostala/apostala.sh &>> /var/log/apostala-server.log &
+	source $RUTA/apostala.sh &>> /var/log/apostala-server.log &
 	echo "[OK]"
 }
 
