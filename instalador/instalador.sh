@@ -4,12 +4,13 @@ RUTASED=$(echo $RUTA | sed  's/\//\\\//g')
 
 instalar() {
 	echo "Instalando apostala-server..."
+	mkdir -p ~root/.vnc		## Creando carpeta para ultravcn
 	mkdir -p $RUTA
 	sed "s/variables/$RUTASED\/variables/" ../apostala.sh > $RUTA/apostala.sh
 	chmod +x $RUTA/apostala.sh
 	cp -r ../modulos $RUTA/
 	cp ../variables $RUTA/
-	sed "s/variables/$RUTASED/" ../apostala-server | sed "s/$\RUTA/$RUTASED/"> /etc/init.d/apostala-server
+	sed "s/variables/$RUTASED\/variables/" ../apostala-server | sed "s/$\RUTA/$RUTASED/"> /etc/init.d/apostala-server
 	chmod +x /etc/init.d/apostala-server
 	update-rc.d apostala-server defaults
 	echo "[OK]"
