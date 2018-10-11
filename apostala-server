@@ -1,15 +1,26 @@
 #!/usr/bin/env bash
+
+##################################################################
+### Configuraciones de bash para una buena programacion.
+##################################################################
+set -o errexit  #En el caso de erro que cierre el programa.
+set -o nounset  #En el caso que tenga variable sin declarar.
+set -o pipefail #Para obtener el estado de salida de la ultima orden que arrojo un codigo de salida distinto a cero.
+#set -o xtrace  #Para depurar encaso que hay errores.
+
 RUTA=$(cat variables | grep ruta | cut -d "=" -f2)
-PROGRAMA=$(ps -au | grep apostala.sh | head -n1 | cut -d " " -f3)
+PROGRAMA=$(ps -au | grep -v "grep" |grep "bash /etc/init.d/apostala-server" | head -n1 -n2 | cut -d " " -f3)
 start() {
 	echo "Iniciando apostala-server..."
-	source $RUTA/apostala.sh &>> /var/log/apostala-server.log &
+	source /opt/apostala/apostala.sh
 	echo "[OK]"
 }
 
 stop() {
 	echo "Desligando apostala-server..."
+	killall -9 x11vnc
 	kill -KILL -$PROGRAMA
+	echo "x11vnc MATADO"
 	echo "[OK]"
 }
 	case "$1" in

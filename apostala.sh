@@ -12,7 +12,7 @@ set -o pipefail	#Para obtener el estado de salida de la ultima orden que arrojo 
 RUTA=$(cat variables | grep ruta | cut -d "=" -f2)
 
 ## Modulos externos.
-SCREENSHOT="$RUTA/modulos/screenshot/screenshot.sh"
+#SCREENSHOT="$RUTA/modulos/screenshot/screenshot.sh"
 ULTRAVNC="$RUTA/modulos/ultravnc/ultravnc.sh"
 ## Lista de dependencias (Creamos el vector DEPENDENCIA[] para guardar las dependencias necesarios para el funcionamento del scritp).
 DEPENDENCIA[0]=scrot	#Una pequena aplicacion para hacer screenshot de la pantalla.
