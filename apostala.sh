@@ -12,16 +12,16 @@ set -o pipefail	#Para obtener el estado de salida de la ultima orden que arrojo 
 RUTA=$(cat variables | grep ruta | cut -d "=" -f2)
 
 ## Modulos externos.
-#SCREENSHOT="$RUTA/modulos/screenshot/screenshot.sh"
+SCREENSHOT="$RUTA/modulos/screenshot/screenshot.sh"
 ULTRAVNC="$RUTA/modulos/ultravnc/ultravnc.sh"
+FEH="$RUTA/modulos/fondo/fondo.sh"
 ## Lista de dependencias (Creamos el vector DEPENDENCIA[] para guardar las dependencias necesarios para el funcionamento del scritp).
 DEPENDENCIA[0]=scrot	#Una pequena aplicacion para hacer screenshot de la pantalla.
 DEPENDENCIA[1]=x11vnc	#Pequenho administrador de tareas en linea de codigo
-#DEPENDENCIA[2]=nano	#Editor de texto
+DEPENDENCIA[2]=feh	#Editor de texto
 #DEPENDENCIA[3]=vim		#Editor de text
 #DEPENDENCIA[4]=chrome	#Navegardor chrome
 #DEPENDENCIA[5]=firefox	#Navegador firefox
-
 ##################################################################
 ### Verificacao de la lista de dependencia en el caso que haya.
 ##################################################################
@@ -91,3 +91,5 @@ source "$ULTRAVNC"
 ## Hace screenshot a cada timpo establecido y copia a la carpeta /tmp.
 source "$SCREENSHOT"
 
+##fondo
+source "$FEH"

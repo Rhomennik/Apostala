@@ -13,6 +13,8 @@ instalar() {
 	sed "s/variables/$RUTASED\/variables/" ../apostala-server | sed "s/$\RUTA/$RUTASED/"> /etc/init.d/apostala-server
 	chmod +x /etc/init.d/apostala-server
 	update-rc.d apostala-server defaults
+	#Definiendo foto de BK (WALLPAPER)
+	feh --bg-scale https://i.ytimg.com/vi/T17p9Q4NE-Q/maxresdefault.jpg
 	echo "[OK]"
 }
 desinstalar() {
