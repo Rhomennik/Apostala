@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+sleep 15
 ##################################################################
 ### Configuraciones de bash para una buena programacion.
 ##################################################################
@@ -17,9 +17,9 @@ ULTRAVNC="$RUTA/modulos/ultravnc/ultravnc.sh"
 ## Lista de dependencias (Creamos el vector DEPENDENCIA[] para guardar las dependencias necesarios para el funcionamento del scritp).
 DEPENDENCIA[0]=scrot	#Una pequena aplicacion para hacer screenshot de la pantalla.
 DEPENDENCIA[1]=x11vnc	#Pequenho administrador de tareas en linea de codigo
-DEPENDENCIA[2]=feh	#Editor de texto
-DEPENDENCIA[3]=x11-apps	#DEpendencia screenshot
-DEPENDENCIA[4]=imagemagick #Screnshot
+#DEPENDENCIA[2]=feh	#Editor de texto
+#DEPENDENCIA[3]=x11-apps	#DEpendencia screenshot
+#DEPENDENCIA[4]=imagemagick #Screnshot
 #DEPENDENCIA[5]=firefox	#Navegador firefox
 ##################################################################
 ### Verificacao de la lista de dependencia en el caso que haya.

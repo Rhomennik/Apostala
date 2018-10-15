@@ -22,7 +22,9 @@ desinstalar() {
 	echo "Desistalando apostala-server..."
 	rm -rf $RUTA/
 	update-rc.d -f apostala-server remove
+	update-rc.d -f apostala-inicio remove
 	rm -rf /etc/init.d/apostala-server
+	rm -rf /etc/init.d/apostala-inicio
 	echo "[OK]"
 }
 	case "$1" in
