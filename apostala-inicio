@@ -16,6 +16,7 @@ else #si no instalamos la nueva version
         ./instalador.sh -d
         ./instalador.sh -i
 	echo "### Atualizacion Concluida ! ###"
+	reboot
 fi
 #/opt/apostala/apostala.sh
 
