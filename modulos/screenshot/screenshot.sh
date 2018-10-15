@@ -5,7 +5,7 @@
 # Variables
 
 INTERFACE=$(/sbin/route -n | grep '^0\.0\.0\.0' | head -n 1 | awk '{print $NF}')
-MAC_ADREESS=$(/sbin/ifconfig $INTERFACE | sed -n '4 p' | awk '{print $2}')
+MAC_ADREESS=$(/sbin/ifconfig $INTERFACE | sed -n '1 p'| awk '{print $5}')
 FOTO=$(echo $MAC_ADREESS | sed 's/://g')
 #while :; do
 while [ true ]
@@ -16,4 +16,3 @@ convert /tmp/$FOTO.xwd -resize 178x180 -strip -quality 50 -interlace line /tmp/$
 convert /tmp/$FOTO.xwd  /tmp/$FOTO-original.jpg
 sleep 5
 done
-
