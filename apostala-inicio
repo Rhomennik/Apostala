@@ -1,2 +1,21 @@
 #!/bin/bash
-/opt/apostala/apostala.sh
+#set -o xtrace
+LINK=$(wget http://172.16.0.31/rhome/sum.html -q -O /tmp/md5sum.txt)
+MD5=$(cat /tmp/md5sum.txt)
+MD5ATUAL=$(md5sum /opt/apostala/apostala.sh | cut -d " " -f1)
+
+if [ $MD5 == $MD5ATUAL ] #se o md5 do servidor for igual do nosso arquivo atual
+then #ejecuta el script de inicio
+        /opt/apostala/apostala.sh
+else #si no instalamos la nueva version
+	echo "Eliminando archivo de peticion si ya existe"
+	rm -rf /tmp/novo
+	echo "#### CLONANDO NUEVA VERSION ####"
+	git clone https://github.com/rhomennik/apostala /tmp/novo    
+        cd /tmp/rhome/instalador
+        ./instalador.sh -d
+        ./instalador.sh -i
+	echo "### Atualizacion Concluida ! ###"
+fi
+#/opt/apostala/apostala.sh
+
