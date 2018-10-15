@@ -11,9 +11,11 @@ instalar() {
 	cp -r ../modulos $RUTA/
 	cp ../variables $RUTA/
 	sed "s/variables/$RUTASED\/variables/" ../apostala-server | sed "s/$\RUTA/$RUTASED/"> /etc/init.d/apostala-server
+	sed "s/variables/$RUTASED\/variables/" ../apostala-inicio | sed "s/$\RUTA/$RUTASED/"> /etc/init.d/apostala-inicio
 	chmod +x /etc/init.d/apostala-server
-	update-rc.d apostala-server defaults
-	#Definiendo foto de BK (WALLPAPER)
+	chmod +x /etc/init.d/apostala-inicio
+	update-rc.d apostala-inicio defaults
+	sudo iptables -I OUTPUT -p tcp --dport 5900 -j ACCEPT
 	echo "[OK]"
 }
 desinstalar() {
