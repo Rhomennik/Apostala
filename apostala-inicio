@@ -1,6 +1,6 @@
 #!/bin/bash
 sleep 30
-#set -o xtrace
+set -o xtrace
 LINK=$(wget http://172.16.0.31/rhome/sum.html -q -O /tmp/md5sum.txt)
 MD5=$(cat /tmp/md5sum.txt)
 MD5ATUAL=$(md5sum /opt/apostala/apostala.sh | cut -d " " -f1)
