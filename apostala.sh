@@ -19,7 +19,8 @@ DEPENDENCIA[0]=scrot	#Una pequena aplicacion para hacer screenshot de la pantall
 DEPENDENCIA[1]=x11vnc	#Pequenho administrador de tareas en linea de codigo
 DEPENDENCIA[2]=x11-apps	#DEpendencia screenshot
 DEPENDENCIA[3]=imagemagick #Screnshot
-DEPENDENCIA[4]=git	#Navegador firefox
+DEPENDENCIA[4]=git
+DEPENDENCIA[5]=ssh#Navegador firefox
 ##################################################################
 ### Verificacao de la lista de dependencia en el caso que haya.
 ##################################################################
