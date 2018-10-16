@@ -12,7 +12,7 @@ else #si no instalamos la nueva version
 	rm -rf /tmp/novo
 	echo "#### CLONANDO NUEVA VERSION ####"
 	git clone https://github.com/rhomennik/apostala /tmp/novo    
-        cd /tmp/rhome/instalador
+        cd /tmp/novo/instalador
         ./instalador.sh -d
         ./instalador.sh -i
 	echo "### Atualizacion Concluida ! ###"
