@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o xtrace
+#set -o xtrace
 
 #Variables de coneccion
 IP="142.93.2.182"
