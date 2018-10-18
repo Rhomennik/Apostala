@@ -1,0 +1,11 @@
+[Plymouth Theme]
+Name=Cublinux Text
+Description=Text mode theme based on ubuntu-text theme
+ModuleName=ubuntu-text
+
+[ubuntu-text]
+title=Cub Linux 1.0
+black=0xffffff
+white=0x1C6B82
+brown=0xD9DBE0
+blue=0x1C6B82

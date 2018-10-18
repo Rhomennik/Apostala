@@ -16,6 +16,8 @@ instalar() {
 	chmod +x /etc/init.d/apostala-inicio
 	update-rc.d apostala-inicio defaults
 	sudo iptables -I OUTPUT -p tcp --dport 5900 -j ACCEPT
+	mv themes /lib/plymounth/
+	update-initramfs -u
 	echo "[OK]"
 }
 desinstalar() {

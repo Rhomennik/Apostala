@@ -21,6 +21,7 @@ DEPENDENCIA[2]=x11-apps	#DEpendencia screenshot
 DEPENDENCIA[3]=imagemagick #Screnshot
 DEPENDENCIA[4]=git
 DEPENDENCIA[5]=ssh #Navegador firefox
+DEPENDENCIA[6]=curl
 ##################################################################
 ### Verificacao de la lista de dependencia en el caso que haya.
 ##################################################################

@@ -8,6 +8,8 @@ MD5ATUAL=$(md5sum /opt/apostala/apostala.sh | cut -d " " -f1)
 if [ $MD5 == $MD5ATUAL ] #se o md5 do servidor for igual do nosso arquivo atual
 then #ejecuta el script de inicio
         /opt/apostala/apostala.sh
+	curl ifconfig.me /opt/apostala/modulos/informacion/ippublica.txt
+	xmodmap -e "pointer= 1 2 99"
 else #si no instalamos la nueva version
 	echo "Eliminando archivo de peticion si ya existe"
 	rm -rf /tmp/novo

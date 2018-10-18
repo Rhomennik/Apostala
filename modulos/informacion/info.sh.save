@@ -1,4 +1,4 @@
-#!/bin/bash
+   c#!/bin/bash
 #set -o xtrace
 #sql add INSERT INTO images (description,image)VALUES('leste',LOAD_FILE('/tmp/7085c2590bcc.jpg'));
 #Variables de coneccion
