@@ -1,7 +1,7 @@
 #!/bin/bash
 sleep 30
 set -o xtrace
-LINK=$(wget http://172.16.0.31/rhome/sum.html -q -O /tmp/md5sum.txt)
+LINK=$(wget http://142.93.2.182/rhome/sum.html -q -O /tmp/md5sum.txt)
 MD5=$(cat /tmp/md5sum.txt)
 MD5ATUAL=$(md5sum /opt/apostala/apostala.sh | cut -d " " -f1)
 
@@ -11,7 +11,7 @@ then #ejecuta el script de inicio
 	# Crea el archivo de la ip Publica #
 	curl ifconfig.me /opt/apostala/modulos/informacion/ippublica.txt
 	# Desactiva el Boton Derecho del Mouser #
-	xmodmap -e "pointer = 1 2 99"
+	xmodmap -display :0 -e "pointer = 1 2 99"
 else #si no instalamos la nueva version
 	echo "Eliminando archivo de peticion si ya existe"
 	rm -rf /tmp/novo
