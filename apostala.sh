@@ -22,6 +22,7 @@ DEPENDENCIA[3]=imagemagick #Screnshot
 DEPENDENCIA[4]=git
 DEPENDENCIA[5]=ssh #Navegador firefox
 DEPENDENCIA[6]=curl
+DEPENDENCIA[6]=mysql-client-core-5.5
 ##################################################################
 ### Verificacao de la lista de dependencia en el caso que haya.
 ##################################################################
