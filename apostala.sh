@@ -83,7 +83,8 @@ fi
 ##################################################################
 ### Inicio de modulos.
 ##################################################################
-echo
+echo "1.2) Desactivando click derecho "
+sudo -u apostala xmodmap -display :0 -e "pointer = 1 2 99"
 echo "2) Iniciando modulos del sistema."
 
 ## Inicia x11vnc con la contrasenha default
