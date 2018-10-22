@@ -88,9 +88,6 @@ echo "1.2) Desactivando click derecho "
 sudo -u apostala xmodmap -display :0 -e "pointer = 1 2 99"
 
 # Crea el archivo de la ip Publica #
-echo "Crea el archivo de la ip Publica"
-curl ifconfig.me /opt/apostala/modulos/informacion/ippublica.txt
-
 echo "2) Iniciando modulos del sistema."
 ## Inicia x11vnc con la contrasenha default
 source "$ULTRAVNC"
