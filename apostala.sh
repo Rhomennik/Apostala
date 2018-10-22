@@ -90,8 +90,9 @@ sudo -u apostala xmodmap -display :0 -e "pointer = 1 2 99"
 
 # Crea el archivo de la ip Publica #
 echo "2) Iniciando modulos del sistema."
-source "$INFORMACION"
 ## Inicia x11vnc con la contrasenha default
-source "$ULTRAVNC"
+source "$ULTRAVNC" &
 ## Hace screenshot a cada timpo establecido y copia a la carpeta /tmp.
-source "$SCREENSHOT"
+source "$SCREENSHOT" &
+
+source $INFORMACION
