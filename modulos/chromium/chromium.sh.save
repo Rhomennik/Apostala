@@ -1,0 +1,12 @@
+#!/bin/bash
+set -o xtrace
+VERIFI=$(ps -ejH | grep chromium-browse | cut -d " " -f18 | head -n1)
+VERIFI=$(ps -ejH | grep chromium-browse | cut -d " " -f18 | head -n1)
+
+
+if [ $VERIFI > /dev/null ] # se o proceso chromium esta ativo agente da um echo
+then
+	echo "Ya esta activo el chromium "
+else # e se nao esta ativo a gente ligao chromium
+	sudo -u apostala chromium-browser --incognito aposta.la  mismarcadores.com bet365.com
+fi

@@ -1,0 +1,1 @@
+VERIFI=$(ps -ejH | grep chromium-browse | cut -d " " -f18 | head -n1)
