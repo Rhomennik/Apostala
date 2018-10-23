@@ -2,7 +2,7 @@
 set -o xtrace
 while [ true ]
 do
-VERIFI=$(ps -ejH | grep chromium-browse | cut -d " " -f18 | head -n1) # CHROMIUM ESTA ACTIVO ?
+VERIFI=$(ps -e | grep "chromium-browse" | cut -d " " -f12 | head -n1) # CHROMIUM ESTA ACTIVO ?
 OPENBOX=$(ps -ejH | grep openbox | cut -d " " -f22 | head -n1) # OPENBOX ESTA ACTIVO?
 
 if [ $VERIFI > /dev/null ] # se o proceso chromium esta ativo agente da um echo

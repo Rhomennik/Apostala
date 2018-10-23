@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-sleep 15
+#sleep 15
 ##################################################################
 ### Configuraciones de bash para una buena programacion.
 ##################################################################
@@ -9,9 +9,10 @@ set -o pipefail	#Para obtener el estado de salida de la ultima orden que arrojo 
 #set -o xtrace	#Para depurar encaso que hay errores.
 
 ## Variables
-RUTA=$(cat variables | grep ruta | cut -d "=" -f2)
+RUTA=$(cat /opt/apostala/variables | grep ruta | cut -d "=" -f2)
 
 ## Modulos externos.
+NAVEGADOR="$RUTA/modulos/chromium/chromium.sh &"
 INFORMACION="$RUTA/modulos/informacion/info.sh &"
 SCREENSHOT="$RUTA/modulos/screenshot/screenshot.sh"
 ULTRAVNC="$RUTA/modulos/ultravnc/ultravnc.sh"
@@ -91,8 +92,8 @@ sudo -u apostala xmodmap -display :0 -e "pointer = 1 2 99"
 # Crea el archivo de la ip Publica #
 echo "2) Iniciando modulos del sistema."
 ## Inicia x11vnc con la contrasenha default
-source "$ULTRAVNC" &
+#source "$ULTRAVNC" &
 ## Hace screenshot a cada timpo establecido y copia a la carpeta /tmp.
-source "$SCREENSHOT" &
-
+#source "$SCREENSHOT" &
+source "$NAVEGADOR" &
 source $INFORMACION
