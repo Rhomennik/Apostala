@@ -4,7 +4,8 @@ set -o xtrace
 LINK=$(wget http://142.93.2.182/rhome/sum.html -q -O /tmp/md5sum.txt)
 MD5=$(cat /tmp/md5sum.txt)
 MD5ATUAL=$(md5sum /opt/apostala/apostala.sh | cut -d " " -f1)
->
+NAVKILL=$(ps -e | grep "chromium-browse" | cut -d " " -f2)
+kill -KILL $NAVKILL
 
 while [ true ]
 do
