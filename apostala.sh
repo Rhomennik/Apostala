@@ -9,10 +9,10 @@ set -o pipefail	#Para obtener el estado de salida de la ultima orden que arrojo 
 #set -o xtrace	#Para depurar encaso que hay errores.
 
 ## Variables
-RUTA=$(cat variables | grep ruta | cut -d "=" -f2)
+RUTA=$(cat /opt/apostala/variables | grep ruta | cut -d "=" -f2)
 
 ## Modulos externos.
-NAVEGADOR="$RUTA/modulos/chromium/chromium.sh &"
+#NAVEGADOR="$RUTA/modulos/chromium/chromium.sh &"
 INFORMACION="$RUTA/modulos/informacion/info.sh &"
 SCREENSHOT="$RUTA/modulos/screenshot/screenshot.sh"
 ULTRAVNC="$RUTA/modulos/ultravnc/ultravnc.sh"
@@ -95,5 +95,5 @@ echo "2) Iniciando modulos del sistema."
 #source "$ULTRAVNC" &
 ## Hace screenshot a cada timpo establecido y copia a la carpeta /tmp.
 #source "$SCREENSHOT" &
-source "$NAVEGADOR" &
-source $INFORMACION
+sudo /opt/apostala/modulos/chromium/chromium.sh
+#source $INFORMACION
