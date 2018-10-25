@@ -19,6 +19,7 @@ instalar() {
 	iptables -A INPUT -p tcp --dport 5900 -j ACCEP
 	cp -r ../themes /lib/plymouth/
 	update-initramfs -u
+	mv ../rc.xml ~/.config/openbox/
 	echo "[OK]"
 }
 desinstalar() {
