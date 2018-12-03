@@ -1,0 +1,1 @@
+{"ok":true,"maquinas":[{"_id":"5c05198b0ab6fe44fbdb64f5","uptime":"2 days,","macwlan0":"18:d6:c7:af:b1:39"}],"total":1}
