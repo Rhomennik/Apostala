@@ -20,13 +20,13 @@ IPPUBLICO=$(cat ippublica.txt | head -n1)
 
 echo "############ BAIXANDO GET PARA VERIFICACOA DO MAC #############33"
   curl -X GET \
-  http://localhost:3000/maquinas/$MAC \
+  http://localhost:3000/maquinas2/$MAC \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'Postman-Token: 182e2b69-6651-4eb9-b042-59740ec36c71' \
   -H 'cache-control: no-cache' > buscandomac.txt
 echo "BUSCANDO MAC"
 FINDMAC=$(find buscandomac.txt -type f -exec grep -l $MAC {} \;)
-IDMAQ=$(cat buscandomac.txt | head -n1 | cut -d '"' -f8)
+IDMAQ=$(cat buscandomac.txt | head -n1 | cut -d '"' -f4)
 echo "validacao se o mac e igual"
   if  [ $FINDMAC == buscandomac.txt ]
   then ## Si existe ejecutamos L26
@@ -34,9 +34,9 @@ echo "validacao se o mac e igual"
     curl -X PUT \
   http://localhost:3000/maquinas/$IDMAQ \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  -H 'Postman-Token: a60024dc-9cce-4a24-99a4-d42243505458' \
+  -H 'Postman-Token: 93b87e09-790e-4cd8-89b2-377c6cbb9929' \
   -H 'cache-control: no-cache' \
-  -d "uptime=$UPTIME&Iplocal=$IPLOCAL&IPPUBLICO=$IPPUBLICO"
+  -d "uptime=$UPTIME&mac=$MAC&iplocal=$IPLOCAL&ippublico=$IPPUBLICO"
 
    else # Si no existe registramos, (new)
    echo " Creando nuevo registro"
@@ -45,7 +45,7 @@ curl -X POST \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'Postman-Token: 80ab2f4c-b0f6-4cae-ae27-2aa4cdc76d11' \
   -H 'cache-control: no-cache' \
-  -d "iplocal=$IPLOCAL&ippublico=$IPPUBLICO&uptime=$UPTIME&macwlan0=$MAC&maclan0=null"
+  -d "iplocal=$IPLOCAL&ippublico=$IPPUBLICO&uptime=$UPTIME&mac=$MAC"
    echo "MAC NO EXISTE EN LA BASE DE DATOS"
 fi
 echo " atualizado :D "
