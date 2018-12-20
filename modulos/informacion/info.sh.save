@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o xtrace
+#set -o xtrace
 
 
 # MAC=$(/sbin/ifconfig $INTERFACE | grep inet6 | head -n2 | cut -d " " -f10)
@@ -14,14 +14,12 @@ FOTO=GG.png
 IPMONGO=172.16.0.15:3000
 INTERFACE=$(/sbin/route -n | grep '^0\.0\.0\.0' | head -n 1 | awk '{print $NF}')
 MAC=$(ifconfig $INTERFACE | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | head -n1)
-FOTO=$(echo $MAC | sed 's/://g')
+FOTO=$(echo $MAC_ADREESS.jpg | sed 's/://g')
 UPTIME=$(uptime | cut -d " " -f4,5)
 IPLOCAL=$(ifconfig $INTERFACE | grep inet| head -n1 | cut -d " " -f10 | sed 's/addr://g')
 IPPUBLICO=$(cat ippublica.txt | head -n1)
 
 echo "############ BAIXANDO GET PARA VERIFICACOA DO MAC #############33"
-
-echo $FOTO
   curl -X GET \
   http://$IPMONGO/maquinas2/$MAC \
   -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -41,23 +39,30 @@ echo "validacao se o mac e igual"
   -H 'cache-control: no-cache' \
   -d "uptime=$UPTIME&mac=$MAC&iplocal=$IPLOCAL&ippublico=$IPPUBLICO&img=$FOTO"
 
-
-curl -i -X PUT -H "Content-Type: multipart/form-data" -F "imagen=@/tmp/$FOTO-original.jpg" http://$IPMONGO/upload/maquinas/$IDMAQ
+curl -X PUT \
+  http://localhost:3000/upload/maquinas/5c153039125b6346c3cca2ef \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'Postman-Token: 4f045834-366d-4d86-bd71-17fadf045349' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F 'imagen=@/home/rhomennik/Downloads/Layer (2).png'curl -X PUT \
+  http://localhost:3000/upload/maquinas/5c153039125b6346c3cca2ef \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'Postman-Token: 4f045834-366d-4d86-bd71-17fadf045349' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F 'imagen=@/tmp/$FOTO
    else # Si no existe registramos, (new)
    echo " Creando nuevo registro"
-	echo $FOTO
 curl -X POST \
   http://$IPMONGO/maquinas \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'Postman-Token: 80ab2f4c-b0f6-4cae-ae27-2aa4cdc76d11' \
   -H 'cache-control: no-cache' \
   -d "iplocal=$IPLOCAL&ippublico=$IPPUBLICO&uptime=$UPTIME&mac=$MAC&img=$FOTO"
-
-curl -i -X PUT -H "Content-Type: multipart/form-data" -F "imagen=@/tmp/$FOTO-original.jpg" http://$IPMONGO/upload/maquinas/$IDMAQ 
-
    echo "MAC NO EXISTE EN LA BASE DE DATOS"
 fi
 echo " atualizado :D "
 
-sleep 15
+sleep 5
 done
