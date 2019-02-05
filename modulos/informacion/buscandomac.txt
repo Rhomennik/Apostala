@@ -1,1 +1,0 @@
-[{"_id":"5c1788f33cc673119b7c74bd","iplocal":"","ippublico":"181.123.218.39","uptime":"3 min,","mac":"08:00:27:7f:d7:dc"}]

@@ -16,20 +16,20 @@ INTERFACE=$(/sbin/route -n | grep '^0\.0\.0\.0' | head -n 1 | awk '{print $NF}')
 MAC=$(ifconfig $INTERFACE | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | head -n1)
 FOTO=$(echo $MAC | sed 's/://g')
 UPTIME=$(uptime | cut -d " " -f4,5)
-IPLOCAL=$(ifconfig $INTERFACE | grep inet| head -n1 | cut -d " " -f10 | sed 's/addr://g')
+IPLOCAL=$(hostname -I)
 IPPUBLICO=$(cat ippublica.txt | head -n1)
 
 echo "############ BAIXANDO GET PARA VERIFICACOA DO MAC #############33"
 
 echo $FOTO
   curl -X GET \
-  http://$IPMONGO/maquinas2/$MAC \
+  http://$IPMONGO/maquinas/$MAC \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'Postman-Token: 182e2b69-6651-4eb9-b042-59740ec36c71' \
   -H 'cache-control: no-cache' > buscandomac.txt
 echo "BUSCANDO MAC"
 FINDMAC=$(find buscandomac.txt -type f -exec grep -l $MAC {} \;)
-IDMAQ=$(cat buscandomac.txt | head -n1 | cut -d '"' -f4)
+IDMAQ=$(cat buscandomac.txt | head -n1 | cut -d '"' -f8)
 echo "validacao se o mac e igual"
   if  [ $FINDMAC == buscandomac.txt ]
   then ## Si existe ejecutamos L26
@@ -39,25 +39,26 @@ echo "validacao se o mac e igual"
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'Postman-Token: 93b87e09-790e-4cd8-89b2-377c6cbb9929' \
   -H 'cache-control: no-cache' \
-  -d "uptime=$UPTIME&mac=$MAC&iplocal=$IPLOCAL&ippublico=$IPPUBLICO&img=$FOTO"
+  -d "uptime=$UPTIME&mac=$MAC&iplocal=$IPLOCAL&ippublico=$IPPUBLICO"
 
 
-curl -i -X PUT -H "Content-Type: multipart/form-data" -F "imagen=@/tmp/$FOTO-original.jpg" http://$IPMONGO/upload/maquinas/$IDMAQ
+curl -i -X PUT -H "Content-Type: multipart/form-data" -F "imagen=@/opt/apostala/modulos/informacion/a.jpg" http://172.16.0.15:3000/upload/maquinas/$IDMAQ
+
+
    else # Si no existe registramos, (new)
    echo " Creando nuevo registro"
 	echo $FOTO
+# Enviando a foto kk dps da info
+#sudo ./ss.sh
+
 curl -X POST \
   http://$IPMONGO/maquinas \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'Postman-Token: 80ab2f4c-b0f6-4cae-ae27-2aa4cdc76d11' \
   -H 'cache-control: no-cache' \
-  -d "iplocal=$IPLOCAL&ippublico=$IPPUBLICO&uptime=$UPTIME&mac=$MAC&img=$FOTO"
+  -d "iplocal=$IPLOCAL&ippublico=$IPPUBLICO&uptime=$UPTIME&mac=$MAC&img=nuevo"
 
-curl -i -X PUT -H "Content-Type: multipart/form-data" -F "imagen=@/tmp/$FOTO-original.jpg" http://$IPMONGO/upload/maquinas/$IDMAQ 
-
-   echo "MAC NO EXISTE EN LA BASE DE DATOS"
 fi
 echo " atualizado :D "
-
-sleep 15
+sleep 10
 done
