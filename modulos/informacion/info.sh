@@ -41,8 +41,8 @@ echo "validacao se o mac e igual"
   -H 'cache-control: no-cache' \
   -d "uptime=$UPTIME&mac=$MAC&iplocal=$IPLOCAL&ippublico=$IPPUBLICO"
 
-
-curl -i -X PUT -H "Content-Type: multipart/form-data" -F "imagen=@/opt/apostala/modulos/informacion/a.jpg" http://172.16.0.15:3000/upload/maquinas/$IDMAQ
+echo "FUNCIONANDO TIROU IMAGEN AQUI EMBNAIXO LEGAL MEU DEUS"
+curl -i -X PUT -H "Content-Type: multipart/form-data" -F "imagen=@/tmp/$FOTO-original.jpg" http://172.16.0.15:3000/upload/maquinas/$IDMAQ
 
 
    else # Si no existe registramos, (new)

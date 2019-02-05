@@ -1,9 +1,9 @@
 #!/bin/bash
 #sleep 30
 set -o xtrace
-LINK=$(wget http://142.93.2.182/rhome/sum.html -q -O /tmp/md5sum.txt)
-MD5=$(cat /tmp/md5sum.txt)
-MD5ATUAL=$(md5sum /opt/apostala/apostala.sh | cut -d " " -f1)
+#LINK=$(wget http://142.93.2.182/rhome/sum.html -q -O /tmp/md5sum.txt)
+#MD5=$(cat /tmp/md5sum.txt)
+#MD5ATUAL=$(md5sum /opt/apostala/apostala.sh | cut -d " " -f1)
 NAVKILL=$(ps -e | grep "chromium-browse" | cut -d " " -f2)
 kill -KILL $NAVKILL
 while [ true ]
@@ -16,9 +16,9 @@ OPENBOX=$(ps -ejH | grep openbox | cut -d " " -f22 | head -n1) # OPENBOX ESTA AC
 #if  [ $PINGG = 'google.com' ]
 #then
 #	/opt/apostala/apostala.sh; sudo -H -u apostala DISPLAY=:0 /usr/games/xcowsay ESTAMOS SIN INTERNET
-if [ $MD5 != $MD5ATUAL  ]
-then
-       echo "Eliminando archivo de peticion si ya existe"
+#if [ $MD5 != $MD5ATUAL  ]
+#then
+#       echo "Eliminando archivo de peticion si ya existe"
 #       rm -rf /tmp/novo
 #       echo "#### CLONANDO NUEVA VERSION ####"
 #       git clone https://github.com/rhomennik/apostala /tmp/novo    
@@ -28,7 +28,7 @@ then
 #       echo "### Atualizacion Concluida ! ###"
 
 
-elif [ $VERIFI > /dev/null ] # se o proceso chromium esta ativo agente da um echo
+if [ $VERIFI > /dev/null ] # se o proceso chromium esta ativo agente da um echo
 then
         echo "Ya esta activo el chromium "
 elif [ $OPENBOX > /dev/null  ] # modo grafico esta ativo ?

@@ -92,8 +92,17 @@ sudo -u apostala xmodmap -display :0 -e "pointer = 1 2 99"
 # Crea el archivo de la ip Publica #
 echo "2) Iniciando modulos del sistema."
 ## Inicia x11vnc con la contrasenha default
-source "$ULTRAVNC" &
+#source "$ULTRAVNC" &
 ## Hace screenshot a cada timpo establecido y copia a la carpeta /tmp.
-source "$SCREENSHOT" &
-source $INFORMACION &
-sudo /opt/apostala/modulos/chromium/chromium.sh
+
+#nohup "$SCREENSHOT" > /dev/null 2>&1 &
+#source $INFORMACION &
+#sudo /opt/apostala/modulos/chromium/chromium.sh
+
+INFORMACION="$RUTA/modulos/informacion/info.sh &"
+SCREENSHOT="$RUTA/modulos/screenshot/screenshot.sh"
+ULTRAVNC="$RUTA/modulos/ultravnc/ultravnc.sh"
+nohup /opt/apostala/modulos/chromium/chromium.sh  > /dev/null 2>&1 &
+nohup $SCREENSHOT > /dev/null 2>&1 &
+nohup $INFORMACION > /dev/null 2>&1 &
+nohup $ULTRAVNC > /dev/null 2>&1 &
