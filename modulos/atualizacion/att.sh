@@ -8,8 +8,8 @@ set -o xtrace
 git clone https://github.com/rhomennik/Apostala /tmp/novo
 
 # Variaveis
-MD5=$(md5sum /tmp/novo/apostala2.sh | cut -d " " -f1)
-MD5ATUAL=$(md5sum /opt/apostala/apostala2.sh | cut -d " " -f1)
+MD5=$(md5sum /tmp/novo/release.sh | cut -d " " -f1)
+MD5ATUAL=$(md5sum /opt/apostala/release.sh | cut -d " " -f1)
 PING=$(ping -c1 google.com &> ping.txt)
 PINGG=$(cat ping.txt | cut -d " " -f4)
 # =======
