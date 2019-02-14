@@ -16,7 +16,8 @@ instalar() {
 #	chmod +x /etc/init.d/apostala-inicio
 #	update-rc.d apostala-inicio defaults
 #	rm -rf /etc/rc6.d/K20apostala-inicio
-	mv rc.local /etc/.
+	cp rc.local /etc/.
+	cp ../release.txt $RUTA/.
 	iptables -A INPUT -p tcp --dport 5900 -j ACCEPT
 	cp -r ../themes /lib/plymouth/
 	update-initramfs -u
