@@ -23,7 +23,6 @@ then
        ./instalador.sh -d
        ./instalador.sh -i
        echo "### Atualizacion Concluida ! ###"
-	reboot
 else
 echo "El sistema esta atualizado easy"
 fi
