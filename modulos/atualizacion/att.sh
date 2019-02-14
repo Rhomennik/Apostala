@@ -1,8 +1,9 @@
 #!/bin/bash
+
+while [ true ]
+do
 rm -rf /tmp/novo
 set -o xtrace
-
-
 #Precose
 git clone https://github.com/rhomennik/Apostala /tmp/novo
 
@@ -26,4 +27,5 @@ then
 else
 echo "El sistema esta atualizado easy"
 fi
-
+sleep 15
+done
