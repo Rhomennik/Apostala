@@ -1,0 +1,1 @@
+{"ok":true,"maquinas":[{"updatedAt":"2019-02-12 14:16:18","_id":"5c62c41025f5982e14ffc3de","iplocal":"192.168.10.64 ","ippublico":"181.126.27.108","uptime":"7 min,","mac":"50:3e:aa:34:90:cc"}],"total":1}

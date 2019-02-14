@@ -1,0 +1,140 @@
++ curl ifconfig.me
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0100    14  100    14    0     0      4      0  0:00:03  0:00:02  0:00:01     4
++ '[' true ']'
++ IPMONGO=192.168.10.62:3000
+++ /sbin/route -n
+++ grep '^0\.0\.0\.0'
+++ head -n 1
+++ awk '{print $NF}'
++ INTERFACE=wlan0
+++ cat /sys/class/net/wlan0/address
++ MAC=50:3e:aa:34:90:cc
+++ echo 50:3e:aa:34:90:cc
+++ sed s/://g
++ FOTO=503eaa3490cc
+++ uptime
+++ cut -d ' ' -f4,5
++ UPTIME='28 min,'
+++ hostname -I
++ IPLOCAL='192.168.10.64 '
+++ cat ippublica.txt
+++ head -n1
++ IPPUBLICO=181.126.27.108
++ echo '############ BAIXANDO GET PARA VERIFICACOA DO MAC #############33'
+############ BAIXANDO GET PARA VERIFICACOA DO MAC #############33
++ echo 50:3e:aa:34:90:cc
+50:3e:aa:34:90:cc
++ curl -X GET http://192.168.10.62:3000/maquinas/50:3e:aa:34:90:cc -H 'Content-Type: application/x-www-form-urlencoded' -H 'Postman-Token: 182e2b69-6651-4eb9-b042-59740ec36c71' -H 'cache-control: no-cache'
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100   204  100   204    0     0    198      0  0:00:01  0:00:01 --:--:--   201
++ echo 'BUSCANDO MAC'
+BUSCANDO MAC
+++ find buscandomac.txt -type f -exec grep -l 50:3e:aa:34:90:cc '{}' ';'
++ FINDMAC=buscandomac.txt
+++ head -n1
+++ cut -d '"' -f12
+++ cat buscandomac.txt
++ IDMAQ=5c62c41025f5982e14ffc3de
++ echo 'validacao se o mac e igual'
+validacao se o mac e igual
++ '[' buscandomac.txt == buscandomac.txt ']'
++ echo ' Atualizando informaciones '
+ Atualizando informaciones 
++ curl -X PUT http://192.168.10.62:3000/maquinas/5c62c41025f5982e14ffc3de -H 'Content-Type: application/x-www-form-urlencoded' -H 'Postman-Token: 93b87e09-790e-4cd8-89b2-377c6cbb9929' -H 'cache-control: no-cache' -d 'uptime=28 min,&mac=50:3e:aa:34:90:cc&iplocal=192.168.10.64 &ippublico=181.126.27.108'
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   325  100   241  100    84   1692    589 --:--:-- --:--:-- --:--:--  2410
+{"ok":true,"maquinas":{"updatedAt":"2019-02-12 15:03:39","_id":"5c62c41025f5982e14ffc3de","iplocal":"192.168.10.64 ","ippublico":"181.126.27.108","uptime":"28 min,","mac":"50:3e:aa:34:90:cc","img":"5c62c41025f5982e14ffc3de-883.jpg","__v":0}}+ echo 'FUNCIONANDO TIROU IMAGEN AQUI EMBNAIXO LEGAL MEU DEUS'
+FUNCIONANDO TIROU IMAGEN AQUI EMBNAIXO LEGAL MEU DEUS
++ curl -i -X PUT -H 'Content-Type: multipart/form-data' -F imagen=@/tmp/503eaa3490cc-original.jpg http://192.168.10.62:3000/upload/maquinas/5c62c41025f5982e14ffc3de
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 42  2890   38  1025  100   205   3473    694 --:--:-- --:--:-- --:--:--  4116100  2890  100  2685  100   205   9031    689 --:--:-- --:--:-- --:--:-- 10697
+HTTP/1.1 100 Continue
+
+HTTP/1.1 500 Internal Server Error
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS
+Content-Security-Policy: default-src 'self'
+X-Content-Type-Options: nosniff
+Content-Type: text/html; charset=utf-8
+Content-Length: 2685
+Date: Tue, 12 Feb 2019 18:03:39 GMT
+Connection: keep-alive
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>TypeError: Cannot read property &#39;name&#39; of undefined<br> &nbsp; &nbsp;at app.put (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\routes\upload.js:47:33)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\layer.js:95:5)<br> &nbsp; &nbsp;at next (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\route.js:137:13)<br> &nbsp; &nbsp;at Route.dispatch (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\route.js:112:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\layer.js:95:5)<br> &nbsp; &nbsp;at C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\index.js:281:22<br> &nbsp; &nbsp;at param (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\index.js:354:14)<br> &nbsp; &nbsp;at param (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\index.js:365:14)<br> &nbsp; &nbsp;at param (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\index.js:365:14)<br> &nbsp; &nbsp;at Function.process_params (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\index.js:410:3)<br> &nbsp; &nbsp;at Busboy.next (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\express\lib\router\index.js:275:10)<br> &nbsp; &nbsp;at Busboy.emit (events.js:202:15)<br> &nbsp; &nbsp;at Busboy.emit (C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\busboy\lib\main.js:38:33)<br> &nbsp; &nbsp;at C:\Users\R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;h ome\Desktop\trabalhoangular\backend-rhome\node_modules\busboy\lib\types\multipart.js:52:13<br> &nbsp; &nbsp;at processTicksAndRejections (internal/process/next_tick.js:74:9)</pre>
+</body>
+</html>
++ echo ' atualizado :D '
+ atualizado :D 
++ sleep 60
++ '[' true ']'
++ IPMONGO=192.168.10.62:3000
+++ /sbin/route -n
+++ grep '^0\.0\.0\.0'
+++ head -n 1
+++ awk '{print $NF}'
++ INTERFACE=wlan0
+++ cat /sys/class/net/wlan0/address
++ MAC=50:3e:aa:34:90:cc
+++ echo 50:3e:aa:34:90:cc
+++ sed s/://g
++ FOTO=503eaa3490cc
+++ uptime
+++ cut -d ' ' -f4,5
++ UPTIME='29 min,'
+++ hostname -I
++ IPLOCAL='192.168.10.64 '
+++ cat ippublica.txt
+++ head -n1
++ IPPUBLICO=181.126.27.108
++ echo '############ BAIXANDO GET PARA VERIFICACOA DO MAC #############33'
+############ BAIXANDO GET PARA VERIFICACOA DO MAC #############33
++ echo 50:3e:aa:34:90:cc
+50:3e:aa:34:90:cc
++ curl -X GET http://192.168.10.62:3000/maquinas/50:3e:aa:34:90:cc -H 'Content-Type: application/x-www-form-urlencoded' -H 'Postman-Token: 182e2b69-6651-4eb9-b042-59740ec36c71' -H 'cache-control: no-cache'
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   204  100   204    0     0   1409      0 --:--:-- --:--:-- --:--:--  1406100   204  100   204    0     0   1406      0 --:--:-- --:--:-- --:--:--  1406
++ echo 'BUSCANDO MAC'
+BUSCANDO MAC
+++ find buscandomac.txt -type f -exec grep -l 50:3e:aa:34:90:cc '{}' ';'
++ FINDMAC=buscandomac.txt
+++ head -n1
+++ cat buscandomac.txt
+++ cut -d '"' -f12
++ IDMAQ=5c62c41025f5982e14ffc3de
++ echo 'validacao se o mac e igual'
+validacao se o mac e igual
++ '[' buscandomac.txt == buscandomac.txt ']'
++ echo ' Atualizando informaciones '
+ Atualizando informaciones 
++ curl -X PUT http://192.168.10.62:3000/maquinas/5c62c41025f5982e14ffc3de -H 'Content-Type: application/x-www-form-urlencoded' -H 'Postman-Token: 93b87e09-790e-4cd8-89b2-377c6cbb9929' -H 'cache-control: no-cache' -d 'uptime=29 min,&mac=50:3e:aa:34:90:cc&iplocal=192.168.10.64 &ippublico=181.126.27.108'
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   325  100   241  100    84   1098    382 --:--:-- --:--:-- --:--:--  1095100   325  100   241  100    84   1092    380 --:--:-- --:--:-- --:--:--  1090
+{"ok":true,"maquinas":{"updatedAt":"2019-02-12 15:04:42","_id":"5c62c41025f5982e14ffc3de","iplocal":"192.168.10.64 ","ippublico":"181.126.27.108","uptime":"29 min,","mac":"50:3e:aa:34:90:cc","img":"5c62c41025f5982e14ffc3de-389.jpg","__v":0}}+ echo 'FUNCIONANDO TIROU IMAGEN AQUI EMBNAIXO LEGAL MEU DEUS'
+FUNCIONANDO TIROU IMAGEN AQUI EMBNAIXO LEGAL MEU DEUS
++ curl -i -X PUT -H 'Content-Type: multipart/form-data' -F imagen=@/tmp/503eaa3490cc-original.jpg http://192.168.10.62:3000/upload/maquinas/5c62c41025f5982e14ffc3de
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 99 64466    0     0   99 64397      0  57804  0:00:01  0:00:01 --:--:-- 57858115 64466    0     0  115 74186      0  59453  0:00:01  0:00:01 --:--:-- 59491
+HTTP/1.1 100 Continue
+
+HTTP/1.1 400 Bad Request
+
++ echo ' atualizado :D '
+ atualizado :D 
++ sleep 60

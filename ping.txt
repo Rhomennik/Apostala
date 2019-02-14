@@ -1,0 +1,6 @@
+PING google.com (172.217.3.78) 56(84) bytes of data.
+64 bytes from mia07s54-in-f14.1e100.net (172.217.3.78): icmp_seq=1 ttl=52 time=158 ms
+
+--- google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 158.082/158.082/158.082/0.000 ms

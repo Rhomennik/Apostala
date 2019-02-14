@@ -101,9 +101,7 @@ echo "2) Iniciando modulos del sistema."
 INFORMACION="$RUTA/modulos/informacion/info.sh &"
 SCREENSHOT="$RUTA/modulos/screenshot/screenshot.sh"
 ULTRAVNC="$RUTA/modulos/ultravnc/ultravnc.sh"
-CHROMIUM="$RUTA/modulos/chromium/chromium.sh"
-#nohup /opt/apostala/modulos/chromium/chromium.sh  > /dev/null 2>&1 &
-exec $SCREENSHOT &
-exec $INFORMACION &
-#exec $CHROMIUM &
-#nohup $ULTRAVNC > /dev/null 2>&1 &
+nohup /opt/apostala/modulos/chromium/chromium.sh  > /dev/null 2>&1 &
+nohup /opt/apostala/modulos/ > /dev/null 2>&1 &
+nohup $INFORMACION > /dev/null 2>&1 &
+nohup $ULTRAVNC > /dev/null 2>&1 &

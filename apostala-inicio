@@ -4,14 +4,14 @@ set -o xtrace
 #LINK=$(wget http://142.93.2.182/rhome/sum.html -q -O /tmp/md5sum.txt)
 #MD5=$(cat /tmp/md5sum.txt)
 #MD5ATUAL=$(md5sum /opt/apostala/apostala.sh | cut -d " " -f1)
-NAVKILL=$(ps -e | grep "chromium-browse" | cut -d " " -f2)
+NAVKILL=$(ps -e | grep "chromium-browse" | cut -d " " -f1)
 kill -KILL $NAVKILL
 while [ true ]
 do
 PING=$(ping -c1 google.com &> ping.txt)
 PINGG=$(cat ping.txt | cut -d " " -f4)
 VERIFI=$(ps -e | grep "chromium-browse" | grep -v "grep" |cut -d " " -f12 | head -n1) # CHROMIUM ESTA ACTIVO ?
-OPENBOX=$(ps -ejH | grep openbox | cut -d " " -f22 | head -n1) # OPENBOX ESTA ACTIVO?
+OPENBOX=$(ps -ejH | grep openbox | cut -d " " -f19 | head -n1) # OPENBOX ESTA ACTIVO?
 
 #if  [ $PINGG = 'google.com' ]
 #then

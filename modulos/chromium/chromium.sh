@@ -1,5 +1,8 @@
 #!/bin/bash
+sleep 10
 set -o xtrace
+pkill -f chromium-browser
+pkill -f chromium-browser
 while [ true ]
 do
 VERIFI=$(ps -e | grep "chromium-browse" | cut -d " " -f12 | head -n1) # CHROMIUM ESTA ACTIVO ?
@@ -10,7 +13,7 @@ then
 	echo "Ya esta activo el chromium "
 elif [ $OPENBOX > /dev/null  ] # modo grafico esta ativo ?
 then
-	sudo -H -u apostala DISPLAY=:0 chromium-browser --incognito aposta.la  mismarcadores.com bet365.com
+	sudo -H -u apostala DISPLAY=:0 chromium-browser --start-maximized --incognito aposta.la  mismarcadores.com bet365.com
 else 				# e se nao esta ativo a gente ligao chromium
 	echo "O pc ta ligando ainda"
 fi
